@@ -12,6 +12,15 @@ import java.util.Set;
 public class ContaService {
     private Set<Conta> contas = new HashSet<>();
 
+    public Set<Conta> listarContasAbertas() {
+        return this.contas;
+    }
+
+    public BigDecimal consultarSaldo(Integer numeroDaConta){
+        var conta = buscarContaPorNumero(numeroDaConta);
+        return conta.getSaldo();
+    }
+
     public void abrir(DadosAberturaConta dadosDaConta){
         Cliente cliente  = new Cliente(dadosDaConta.dadosCliente);
         Conta conta = new Conta(dadosDaConta.numero, BigDecimal.ZERO, cliente);
