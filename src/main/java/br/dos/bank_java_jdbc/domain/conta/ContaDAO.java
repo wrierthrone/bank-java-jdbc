@@ -22,7 +22,7 @@ public class ContaDAO {
     public void salvar(DadosAberturaConta dadosDaConta) {
         Cliente cliente = new Cliente(dadosDaConta.dadosCliente);
         Conta conta = new Conta(dadosDaConta.numero, BigDecimal.ZERO, cliente, true);
-        String sql = "insert into conta (numero, saldo, cliente_nome, cliente_cpf, cliente_email) " + " values (?, ?, ?, ?, ?)";
+        String sql = "insert into conta (numero, saldo, cliente_nome, cliente_cpf, cliente_email, ativo) " + " values (?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
